@@ -12,7 +12,7 @@ function InfoModal(props) {
 					card. If the images don't match it will revert back to its original
 					state and if it is matched it will stay the same. You can restart the
 					game by clicking on the New Game button. You also got the counter to
-					count the number of moves you have taken.{" "}
+					count the number of moves you have taken.
 				</p>
 				<p className={classes.sharp}>Let's see how sharp is your mind!</p>
 				<button className={classes.okay} onClick={props.handleModalview}>
