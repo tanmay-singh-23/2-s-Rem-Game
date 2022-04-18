@@ -28,8 +28,8 @@ button:hover{
   color: #1b1523;
 }
 button:active{
-  background-color: #6bff8b;
-  color: black;
+  background-color: #000000;
+  color: white;
 }
 
 .card-grid{

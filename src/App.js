@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import SingleCard from "./components/SingleCard";
+import InfoModal from "./components/InfoModal";
 
 const cardImages = [
 	{ src: "/img/helmet-1.png", matched: false },
@@ -17,6 +18,7 @@ function App() {
 	const [choiceOne, setChoiceOne] = useState(null);
 	const [choiceTwo, setChoiceTwo] = useState(null);
 	const [disabled, setDisabled] = useState(false);
+	const [isShowing, setIsShowing] = useState(true);
 
 	const shuffleCards = () => {
 		const shuffledCards = [...cardImages, ...cardImages]
@@ -39,7 +41,7 @@ function App() {
 			if (choiceOne.src === choiceTwo.src) {
 				setCards((prevCards) => {
 					return prevCards.map((card) => {
-						if (card.src == choiceOne.src) {
+						if (card.src === choiceOne.src) {
 							return { ...card, matched: true };
 						} else {
 							return card;
@@ -66,24 +68,31 @@ function App() {
 		shuffleCards();
 	}, []);
 
-	return (
-		<div className="App">
-			<h1>Magic Memo</h1>
-			<button onClick={shuffleCards}>New Game</button>
+	const handleModalview = () => {
+		setIsShowing(false);
+	};
 
-			<div className="card-grid">
-				{cards.map((card) => (
-					<SingleCard
-						key={card.id}
-						card={card}
-						handleChoice={handleChoice}
-						flipped={card === choiceOne || card === choiceTwo || card.matched}
-						disabled={disabled}
-					/>
-				))}
+	return (
+		<>
+			{isShowing && <InfoModal handleModalview={handleModalview} />}
+			<div className="App">
+				<h1>Magic Memo</h1>
+				<button onClick={shuffleCards}>New Game</button>
+
+				<div className="card-grid">
+					{cards.map((card) => (
+						<SingleCard
+							key={card.id}
+							card={card}
+							handleChoice={handleChoice}
+							flipped={card === choiceOne || card === choiceTwo || card.matched}
+							disabled={disabled}
+						/>
+					))}
+				</div>
+				<p>Turns : {turns}</p>
 			</div>
-			<p>Turns : {turns}</p>
-		</div>
+		</>
 	);
 }
 
