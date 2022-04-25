@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Find-Another-Me/static/css/main.b440beaa.css",
+    "main.js": "/Find-Another-Me/static/js/main.74f4ff58.js",
+    "index.html": "/Find-Another-Me/index.html",
+    "main.b440beaa.css.map": "/Find-Another-Me/static/css/main.b440beaa.css.map",
+    "main.74f4ff58.js.map": "/Find-Another-Me/static/js/main.74f4ff58.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b440beaa.css",
+    "static/js/main.74f4ff58.js"
+  ]
+}
